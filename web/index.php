@@ -45,7 +45,7 @@ $app->get('/subnet/{ip}/{mask}', function($ip, $mask) use($app) {
             'ETag' => md5($subnet)
         ]
     );
-})->assert('ip', '[\w\.]+')->assert('mask', '[0-9]+');
+})->assert('ip', '[\w\.\:]+')->assert('mask', '[0-9]+');
 
 $app->error(function (\Exception $e, $code) use($app) {
     return $app->json(['error' => $e->getMessage()]);
