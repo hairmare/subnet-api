@@ -42,6 +42,7 @@ $app->get('/subnet/{ip}/{mask}', function($ip, $mask) use($app) {
 
     try {
         $subnet_info = IPTools\Network::parse($subnet)->info;
+        unset($subnet_info['class']);
     } catch (Exception $e) {
         $app->abort(400, $e->getMessage());
     }
