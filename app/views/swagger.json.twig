@@ -6,18 +6,25 @@
   },
   "host" : "subnet.api.hairmare.ch",
   "paths" : {
-    "/subnet/{cidr}" : {
+    "/subnet/{ip}/{prefix}" : {
       "get" : {
         "summary" : "Get subnet information.",
         "description" : "Gets `SubnetInfo` objects containing all available\ninformation on a given subnet.\n",
         "operationId" : "subnetInfo",
         "parameters" : [ {
-          "name" : "cidr",
+          "name" : "ip",
           "in" : "path",
-          "description" : "IP network in CIDR notation",
+          "description" : "IP address",
           "required" : true,
-          "type" : "string"
-        } ],
+          "type" : "string",
+          "format": "ip-address"
+        }, {
+          "name" : "prefix",
+          "in" : "path",
+          "description" : "IP preifx",
+          "required" : true,
+          "type" : "number"
+        }],
         "responses" : {
           "200" : {
             "description" : "Subnet information",
