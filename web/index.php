@@ -28,6 +28,15 @@ $app->get('/', function() use($app) {
     return $app['twig']->render('index.html.twig');
 });
 
+$app->get('/swagger.json', function() use($app) {
+    $response = new Symfony\Component\HttpFoundation\Response(
+        '',
+        200,
+        ['Content-Type' => 'application/json']
+    );
+    return $app['twig']->render('swagger.json.twig', [], $response);
+});
+
 $app->get('/subnet/{ip}/{mask}', function($ip, $mask) use($app) {
     $subnet = $ip . '/' . $mask;
 
