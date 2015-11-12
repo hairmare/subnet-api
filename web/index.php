@@ -52,7 +52,8 @@ $app->get('/subnet/{ip}/{mask}', function($ip, $mask) use($app) {
         200,
         [
             'Cache-Control' => 's-maxage=' . $app['cache_ttl'] . ', public',
-            'ETag' => md5($subnet)
+            'ETag' => md5($subnet),
+            'Access-Control-Allow-Origin', '*'
         ]
     );
 })->assert('ip', '[\w\.\:]+')->assert('mask', '[0-9]+');
