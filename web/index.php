@@ -37,6 +37,16 @@ $app->get('/swagger.json', function() use($app) {
     return $app['twig']->render('swagger.json.twig', [], $response);
 });
 
+$app->get('/apis.json', function() use($app) {
+    $response = new Symfony\Component\HttpFoundation\Response(
+        '',
+        200,
+        ['Content-Type' => 'application/json']
+    );
+    return $app['twig']->render('apis.json.twig', [], $response);
+});
+
+
 $app->get('/subnet/{ip}/{mask}', function($ip, $mask) use($app) {
     $subnet = $ip . '/' . $mask;
 
