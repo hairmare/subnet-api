@@ -1,0 +1,19 @@
+{
+    "name": "hairmare/subnet-api",
+    "description": "Simple JSON API endpoint that returns information on a subnet.",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Lucas Bickel",
+            "email": "hairmare@purplehaze.ch"
+        }
+    ],
+    "require": {
+        "s1lentium/iptools": "dev-master",
+        "silex/silex": "^2.0",
+        "twig/twig": "^2.0@dev",
+        "symfony/twig-bridge": "^3.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
