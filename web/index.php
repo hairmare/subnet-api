@@ -29,21 +29,19 @@ $app->get('/', function() use($app) {
 });
 
 $app->get('/swagger.json', function() use($app) {
-    $response = new Symfony\Component\HttpFoundation\Response(
-        '',
+    return new Symfony\Component\HttpFoundation\Response(
+        $app['twig']->render('swagger.json.twig', [], $response),
         200,
         ['Content-Type' => 'application/json']
     );
-    return $app['twig']->render('swagger.json.twig', [], $response);
 });
 
 $app->get('/apis.json', function() use($app) {
-    $response = new Symfony\Component\HttpFoundation\Response(
-        '',
+    return new Symfony\Component\HttpFoundation\Response(
+        $app['twig']->render('apis.json.twig', [], $response),
         200,
         ['Content-Type' => 'application/json']
     );
-    return $app['twig']->render('apis.json.twig', [], $response);
 });
 
 
