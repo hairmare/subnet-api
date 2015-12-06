@@ -1,19 +1,19 @@
 {
   "name": "Subnet API",
   "description": "Get information on your subnets as JSON with a simple API call.",
-  "url": "http://subnet.api.hairmare.ch/apis.json",
+  "url": "{{ url('apisjson') }}",
   "specificationVersion": "0.14",
   "apis": [
     {
       "name": "Subnet API",
       "description": "Get information on your subnets as JSON with a simple API call.",
-      "baseURL": "http://subnet.api.hairmare.ch/",
-      "humanURL": "http://subnet.api.hairmare.ch/",
-      "image": "http://subnet.api.hairmare.ch/logo.png",
+      "baseURL": "{{ url('home') }}",
+      "humanURL": "{{ url('home') }}",
+      "image": "{{ url('home') }}logo.png",
       "properties": [
         {
           "type": "Swagger",
-          "url": "http://subnet.api.hairmare.ch/swagger.json"
+          "url": "{{ url('swagger') }}"
         }
       ],
       "contact": []

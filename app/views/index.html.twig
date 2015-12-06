@@ -45,19 +45,19 @@
     </nav>
 
     <div class="container">
-        <h1><img src="logo.png" alt="Subnet API" width="400"></h1>
+        <h1><img src="{{ path('home') }}logo.png" alt="Subnet API" width="400"></h1>
         <p>Get information on your subnets as JSON with a simple API call.</p>
         <h2>API</h2>
-        <code>GET http://subnet.api.hairmare.ch/subnet/{ip}/{prefix-length}</code>
+        <code>GET {{ url('home') }}subnet/{ip}/{prefix-length}</code>
         <h2>Documentation</h2>
         <ul>
-            <li><a href="/apis.json">APIs.json: <code>GET http://subnet.api.hairmare.ch/apis.json</code></a></li>
-            <li><a href="/swagger.json">Swagger: <code>GET http://subnet.api.hairmare.ch/swagger.json</code></a></li>
+            <li><a href="{{ path('apisjson') }}">APIs.json: <code>GET {{ url('apisjson') }}</code></a></li>
+            <li><a href="{{ path('swagger') }}">Swagger: <code>GET {{ url('swagger') }}</code></a></li>
         </ul>
         <h2>Examples</h2>
         <ul>
-            <li><a href="/subnet/::ffff/8"><code>GET http://subnet.api.hairmare.ch/subnet/::ffff/8</code></a></li>
-            <li><a href="/subnet/192.168.0.0/24"><code>GET http://subnet.api.hairmare.ch/subnet/192.168.0.0/24</code></a></li>
+            <li><a href="{{ path('api', {ip: '::ffff', mask: 8}) }}"><code>GET {{ url('api', {ip: '::ffff', mask: 8}) }}</code></a></li>
+            <li><a href="{{ path('api', {ip: '192.168.0.0', mask: 24}) }}"><code>GET {{ url('api', {ip: '192.168.0.0', mask: 24}) }}</code></a></li>
         </ul>
         <h2>Contributing</h2>
         The code behind this service may be found at <a href="https://github.com/hairmare/subnet-api">github.com/hairmare/subnet-api</a>.

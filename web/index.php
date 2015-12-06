@@ -13,6 +13,8 @@ $app = new Silex\Application();
 #$app['debug'] = true;
 $app['cache_ttl'] = 86400;
 
+$app->register(new Silex\Provider\RoutingServiceProvider());
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/../app/views',
 ));
@@ -26,7 +28,7 @@ $app->register(new Silex\Provider\HttpCacheServiceProvider(), array(
 
 $app->get('/', function() use($app) {
     return $app['twig']->render('index.html.twig');
-});
+})->bind('home');
 
 $app->get('/swagger.json', function() use($app) {
     return new Symfony\Component\HttpFoundation\Response(
@@ -34,7 +36,7 @@ $app->get('/swagger.json', function() use($app) {
         200,
         ['Content-Type' => 'application/json']
     );
-});
+})->bind('swagger');
 
 $app->get('/apis.json', function() use($app) {
     return new Symfony\Component\HttpFoundation\Response(
@@ -42,7 +44,7 @@ $app->get('/apis.json', function() use($app) {
         200,
         ['Content-Type' => 'application/json']
     );
-});
+})->bind('apisjson');
 
 
 $app->get('/subnet/{ip}/{mask}', function($ip, $mask) use($app) {
@@ -64,7 +66,7 @@ $app->get('/subnet/{ip}/{mask}', function($ip, $mask) use($app) {
             'Access-Control-Allow-Origin', '*'
         ]
     );
-})->assert('ip', '[\w\.\:]+')->assert('mask', '[0-9]+');
+})->assert('ip', '[\w\.\:]+')->assert('mask', '[0-9]+')->bind('api');
 
 $app->after(function (Symfony\Component\HttpFoundation\Request $request, Symfony\Component\HttpFoundation\Response $response) {
     $response->headers->set('Access-Control-Allow-Origin', '*');

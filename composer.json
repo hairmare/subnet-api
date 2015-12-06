@@ -11,7 +11,8 @@
     "require": {
         "s1lentium/iptools": "dev-master",
         "silex/silex": "^2.0",
-        "twig/twig": "^2.0@dev"
+        "twig/twig": "^2.0@dev",
+        "symfony/twig-bridge": "^3.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
