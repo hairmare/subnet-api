@@ -6,7 +6,7 @@
   },
   "host" : "subnet.api.hairmare.ch",
   "paths" : {
-    "/subnet/{ip}/{routing-prefix}" : {
+    "/subnet/{ip}/{prefix-length}" : {
       "get" : {
         "summary" : "Get subnet information.",
         "description" : "Gets `SubnetInfo` objects containing all available\ninformation on a given subnet.\n",
@@ -19,7 +19,7 @@
           "type" : "string",
           "format": "ip-address"
         }, {
-          "name" : "routing-prefix",
+          "name" : "prefix-length",
           "in" : "path",
           "description" : "Routing prefix",
           "required" : true,
