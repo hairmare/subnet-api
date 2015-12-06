@@ -30,7 +30,7 @@ $app->get('/', function() use($app) {
 
 $app->get('/swagger.json', function() use($app) {
     return new Symfony\Component\HttpFoundation\Response(
-        $app['twig']->render('swagger.json.twig', [], $response),
+        $app['twig']->render('swagger.json.twig'),
         200,
         ['Content-Type' => 'application/json']
     );
@@ -38,7 +38,7 @@ $app->get('/swagger.json', function() use($app) {
 
 $app->get('/apis.json', function() use($app) {
     return new Symfony\Component\HttpFoundation\Response(
-        $app['twig']->render('apis.json.twig', [], $response),
+        $app['twig']->render('apis.json.twig'),
         200,
         ['Content-Type' => 'application/json']
     );
